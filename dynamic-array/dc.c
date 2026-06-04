@@ -23,11 +23,11 @@ void free_array(DynamicArray *arr) {
 
 void resize_array(DynamicArray *arr) {
    int k = 2;
-
    void *temp = arr->p;
    int new_capacity = arr->capacity * k;
    void *new_p = malloc(new_capacity * sizeof(void *));
    arr->p = memcpy(new_p, arr->p, arr->size * sizeof(void *));
+   arr->capacity = new_capacity;
 
    free(temp);
 }
